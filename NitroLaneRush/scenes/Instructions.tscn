@@ -27,8 +27,6 @@ layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
-anchor_left = 0.5
-anchor_top = 0.5
 offset_left = -200.0
 offset_top = -150.0
 offset_right = 200.0
@@ -46,8 +44,6 @@ horizontal_alignment = 1
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
 anchor_left = 0.5
 anchor_top = 1.0
 offset_left = -50.0
