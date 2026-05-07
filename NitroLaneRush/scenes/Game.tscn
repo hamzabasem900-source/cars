@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/Enemy.tscn" id="3_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4_hud"]
+[ext_resource type="Texture2D" path="res://assets/road/road_texture.png" id="5_road"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_script")
+enemy_scene = ExtResource("3_enemy")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 800)
+
+[node name="RoadSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_road")
+centered = false
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(240, 700)
+
+[node name="HUD" parent="." instance=ExtResource("4_hud")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

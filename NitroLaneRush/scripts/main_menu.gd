@@ -1,0 +1,10 @@
+extends Control
+
+func _on_start_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/Game.tscn")
+
+func _on_instructions_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/Instructions.tscn")
+
+func _on_exit_button_pressed():
+	get_tree().quit()
